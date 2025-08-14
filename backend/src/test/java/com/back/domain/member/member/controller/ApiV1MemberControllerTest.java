@@ -48,7 +48,7 @@ public class ApiV1MemberControllerTest {
                 )
                 .andDo(print());
 
-        Member member = memberService.findByUsername("usernew").get();
+        Member member = memberService.findByUsername("usernew");
 
         resultActions
                 .andExpect(handler().handlerType(ApiV1MemberController.class))
@@ -80,7 +80,7 @@ public class ApiV1MemberControllerTest {
                 )
                 .andDo(print());
 
-        Member member = memberService.findByUsername("user1").get();
+        Member member = memberService.findByUsername("user1");
 
         resultActions
                 .andExpect(handler().handlerType(ApiV1MemberController.class))
@@ -124,7 +124,7 @@ public class ApiV1MemberControllerTest {
                 )
                 .andDo(print());
 
-        Member member = memberService.findByUsername("user1").get();
+        Member member = memberService.findByUsername("user1");
 
         resultActions
                 .andExpect(handler().handlerType(ApiV1MemberController.class))
@@ -141,7 +141,7 @@ public class ApiV1MemberControllerTest {
     @Test
     @DisplayName("내 정보, with apiKey Cookie")
     void t4() throws Exception {
-        Member actor = memberService.findByUsername("user1").get();
+        Member actor = memberService.findByUsername("user1");
         String actorApiKey = actor.getApiKey();
 
         ResultActions resultActions = mvc
@@ -151,7 +151,7 @@ public class ApiV1MemberControllerTest {
                 )
                 .andDo(print());
 
-        Member member = memberService.findByUsername("user1").get();
+        Member member = memberService.findByUsername("user1");
 
         resultActions
                 .andExpect(handler().handlerType(ApiV1MemberController.class))
@@ -193,7 +193,7 @@ public class ApiV1MemberControllerTest {
     @Test
     @DisplayName("엑세스 토큰이 만료되었거나 유효하지 않다면 apiKey를 통해서 재발급")
     void t7() throws Exception {
-        Member actor = memberService.findByUsername("user1").get();
+        Member actor = memberService.findByUsername("user1");
         String actorApiKey = actor.getApiKey();
 
         ResultActions resultActions = mvc
